@@ -11,7 +11,7 @@
     <h1>قائمة العقارات</h1>
     <ul>
       {% for property in properties %}
-      <li><a href="{{ url_for('property_detail', pk=property.id) }}">{{ property.name }}</a></li>
+      <li><a href="{% url'property_detail', pk=property.id %}">{{ property.name }}</a></li>
       {% endfor %}
     </ul>
   </body>
