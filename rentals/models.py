@@ -6,6 +6,7 @@ class Property(models.Model):
     address = models.CharField(_("العنوان"),max_length=500)
     price = models.DecimalField(_("السعر"),max_digits=10, decimal_places=2)
     description = models.TextField(_("الوصف"))
+    image = models.ImageField(upload_to='property_images/', null=True, blank=True)
 
     def __str__(self):
         return self.name
