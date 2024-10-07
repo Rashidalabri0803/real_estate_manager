@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تفاصيل الإيجار</title>
+</head>
+<body>
+    <h1>تفاصيل الإيجار</h1>
+    <p><strong>اسم المستأجر:</strong> {{ rental.tenant_name }}</p>
+    <p><strong>العقار:</strong> {{ rental.property.title }}</p>
+    <p><strong>الإيجار الشهري:</strong> {{ rental.monthly_rent }} ريال</p>
+    <p><strong>تاريخ البدء:</strong> {{ rental.start_date }}</p>
+    <p><strong>تاريخ الانتهاء:</strong> {{ rental.end_date }}</p>
+    <a href="{% url 'rental-update' rental.pk %}">تعديل</a>
+    <a href="{% url 'rental-delete' rental.pk %}">حذف</a>
+    <a href="{% url 'rental-list' %}">العودة إلى القائمة</a>
+</body>
+</html>
