@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'properties',
     'tenants',
     'rentals',
-    #'bootstrap5',
+    'bootstrap5',
 ]
 
 MIDDLEWARE = [
