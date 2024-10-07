@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تفاصيل الدفع</title>
+</head>
+<body>
+    <h1>تفاصيل الدفع</h1>
+    <p><strong>اسم المستأجر:</strong> {{ payment.rental.tenant_name }}</p>
+    <p><strong>المبلغ المدفوع:</strong> {{ payment.amount }} ريال</p>
+    <p><strong>تاريخ الدفع:</strong> {{ payment.payment_date }}</p>
+    <p><strong>طريقة الدفع:</strong> {{ payment.payment_method }}</p>
+    <a href="{% url 'payment-update' payment.pk %}">تعديل</a>
+    <a href="{% url 'payment-delete' payment.pk %}">حذف</a>
+    <a href="{% url 'payment-list' %}">العودة إلى القائمة</a>
+</body>
+</html>
