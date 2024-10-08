@@ -6,5 +6,5 @@ class RentalAdmin(admin.ModelAdmin):
     list_filter = ('contract_status', 'payment_status', 'start_date', 'end_date')
     search_fields = ('property__name', 'tenant__name')
     ordering = ('-start_date',)
-
+    
 admin.site.register(Rental, RentalAdmin)
