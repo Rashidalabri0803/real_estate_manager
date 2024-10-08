@@ -1,4 +1,5 @@
 from django.db import models
+<<<<<<< HEAD
 from properties.models import Property
 from tenants.models import Tenant
 
@@ -12,3 +13,7 @@ class Rental(models.Model):
     
     def __str__(self):
         return f"إيجار {self.property} للمستأجر {self.tenant}"
+=======
+
+# Create your models here.
+>>>>>>> 0e6a35b80d2d20c9aab15dbf767df617a082d62b

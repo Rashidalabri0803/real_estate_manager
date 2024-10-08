@@ -1,6 +1,7 @@
 from django.db import models
 
 # Create your models here.
+<<<<<<< HEAD
 class Property(models.Model):
     PROPERTY_STATUS = [('available','متاح'),('rented','مؤجر'),]
     name = models.CharField(max_length=100)
@@ -13,3 +14,5 @@ class Property(models.Model):
     
     def __str__(self):
         return f"{self.name}. {self.status}"
+=======
+>>>>>>> 0e6a35b80d2d20c9aab15dbf767df617a082d62b

@@ -40,6 +40,10 @@ INSTALLED_APPS = [
     'properties',
     'tenants',
     'rentals',
+<<<<<<< HEAD
+=======
+    #'bootstrap5',
+>>>>>>> 0e6a35b80d2d20c9aab15dbf767df617a082d62b
 ]
 
 MIDDLEWARE = [
@@ -121,6 +125,9 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 STATIC_ROOT =os.path.join(BASE_DIR, 'staticfiles')
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),
+]
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field

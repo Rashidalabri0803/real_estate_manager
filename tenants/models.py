@@ -1,6 +1,7 @@
 from django.db import models
 
 # Create your models here.
+<<<<<<< HEAD
 class Tenant(models.Model):
     name = models.CharField(max_length=100)
     phone = models.CharField(max_length=15)
@@ -10,3 +11,5 @@ class Tenant(models.Model):
     
     def __str__(self):
         return self.name
+=======
+>>>>>>> 0e6a35b80d2d20c9aab15dbf767df617a082d62b
