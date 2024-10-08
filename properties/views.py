@@ -20,3 +20,8 @@ def add_property(request):
 def property_detail(request, pk):
     property = get_object_or_404(Property, pk=pk)
     return render(request, 'properties/property_detail.html', {'property': property})
+
+def searched_properties(request):
+    query = request.GET.get('q')
+    properties = Property.objects.filter(name__icontains=query)
+    return render(request, 'properties/property_list.html', {'properties': properties})
