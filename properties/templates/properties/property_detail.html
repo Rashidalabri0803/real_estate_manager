@@ -1,14 +1,6 @@
-<!DOCTYPE html>
-<html lang="ar">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{{ property.name }}</title>
-    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
-  </head>
-  <body>
-    <div class="container">
-      <h1>{{ property.name }}</h1>
+{% extends 'base.html' %}
+{% block content %}
+      <h2>{{ property.name }}</h2>
       <img src="{{ property.image.url }}" alt="صورة العقار" class="img-fluid">
       <p>الموقع: {{ property.location }}</p>
       <p>السعر: {{ property.price }}</p>
@@ -16,6 +8,10 @@
       <p>نوع القار: {{ property.get_property_display }}</p>
       <p>الوصف: {{ property.description }}</p>
       <p>الحالة: {{ property.get_status_display }}</p>
-    </div>
-  </body>
-</html>
+      <a href="{% url 'property_update' property.pk %}" class="btn btn-warning">تعديل</a>
+      <form action="{% url 'property_delete' property.pk %}" method="post" class="d-inline">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">حذف</button>
+      </form>
+        <a href="{% url 'property_list' %}" class="btn btn-secundary">الرجوع للقائمة</a>
+{% endblock %}

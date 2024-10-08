@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>{% if form.instance.pk %}تعديل عقار{% else %}إضافة عقار جديد{% endif %}</h2>
+<form method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit" class="btn btn-primary">{% if form.instance.pk %}تعديل{% else %}إضافة{% endif %}</button>
+  <a href="{% url 'property_list' %}" class="btn btn-secundary">إلغاء</a>
+</form>
+{% endblock %}

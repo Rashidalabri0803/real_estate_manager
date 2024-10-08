@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>قائمة العقارات</h2>
+<a href="{% url 'property_create' %}" class="btn btn-primary mb-3">إضافة عقار جديد</a>
+<ul>
+  {% for property in properties %}
+  <li>
+    <a href="{% url 'property_detail' property.pk %}">{{ property.name }}</a>{{ property.location }} - {{ property.price }} ريال
+  </li>
+  {% endfor %}
+</ul>
+{% endblock %}
