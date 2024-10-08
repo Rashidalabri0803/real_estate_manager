@@ -10,6 +10,8 @@ class Rental(models.Model):
     end_date = models.DateField()
     monthly_rent = models.DecimalField(max_digits=10, decimal_places=2)
     payment_status = models.BooleanField(default=False)
+    next_payment_due = models.DateField()
+    contract_status = models.CharField(max_length=20, choices=[('active', 'فعال'), ('terminated', 'منتهي')], default='active')
     
     def __str__(self):
         return f"إيجار {self.property} للمستأجر {self.tenant}"

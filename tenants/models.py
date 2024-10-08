@@ -7,6 +7,8 @@ class Tenant(models.Model):
     email = models.EmailField()
     id_number = models.CharField(max_length=20, unique=True)
     address = models.CharField(max_length=255)
+    profession = models.CharField(max_length=100, blank=True)
+    registration_date = models.DateField(auto_now_add=True)
     
     def __str__(self):
         return self.name
