@@ -7,7 +7,11 @@ def property_list(request):
     properties = Property.objects.all()
     return render(request, 'properties/property_list.html', {'properties': properties})
 
-def add_property(request):
+def property_detail(request, pk):
+    property = get_object_or_404(Property, pk=pk)
+    return render(request, 'properties/property_detail.html', {'property': property})
+
+def property_create(request):
     if request.method == 'POST':
         form = PropertyForm(request.POST)
         if form.is_valid():
@@ -15,13 +19,22 @@ def add_property(request):
             return redirect('property_list')
     else:
         form = PropertyForm()
-    return render(request, 'properties/add_property.html', {'form': form})
+    return render(request, 'properties/property_form.html', {'form': form})
 
-def property_detail(request, pk):
+def property_update(request, pk):
     property = get_object_or_404(Property, pk=pk)
-    return render(request, 'properties/property_detail.html', {'property': property})
+    if request.method == 'POST':
+        form = PropertyForm(request.POST, instance=property)
+        if form.is_valid():
+            form.save()
+            return redirect('property_list')
+    else:
+        form = PropertyForm(instance=property)
+    return render(request, 'properties/property_form.html', {'form': form})
 
-def searched_properties(request):
-    query = request.GET.get('q')
-    properties = Property.objects.filter(name__icontains=query)
-    return render(request, 'properties/property_list.html', {'properties': properties})
+def property_delete(request, pk):
+    property = get_object_or_404(Property, pk=pk)
+    if request.method == 'POST':
+        property.delete()
+        return redirect('property_list')
+    return render(request, 'properties/property_confirm_delete.html', {'property': property})
