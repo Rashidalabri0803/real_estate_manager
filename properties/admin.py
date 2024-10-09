@@ -1,11 +1,9 @@
 from django.contrib import admin
 from .models import Property
-# Register your models here.
+
 class PropertyAdmin(admin.ModelAdmin):
-    list_display = ('name', 'location', 'price', 'property_type', 'status', 'created_at')
-    list_filter = ('status', 'property_type', 'location')
-    search_fields = ('name', 'location')
-    list_editable = ('status',)
-    ordering = ('-created_at',)
-  
+    list_display = ('name', 'location', 'price', 'property_type', 'status')
+    search_fields = ('name', 'location', 'property_type', 'status')
+    list_filter = ('status', 'property_type')
+
 admin.site.register(Property, PropertyAdmin)
