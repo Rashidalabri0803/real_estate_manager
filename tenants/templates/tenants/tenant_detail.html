@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>تفاصيل المستأجر: {{ tenant.name }}</h1>
+<p><strong>الهاتف:</strong> {{ tenant.phone }}</p>
+<p><strong>البريد الإلكتروني:</strong> {{ tenant.email }}</p>
+<p><strong>رقم الهوية:</strong> {{ tenant.id_number }}</p>
+<p><strong>العنوان:</strong> {{ tenant.address }}</p>
+<p><strong>المهنة:</strong> {{ tenant.profession }}</p>
+<a href="{% url 'tenant_update' tenant.pk %}" class="btn btn-warning">تعديل</a>
+<a href="{% url 'tenant_list' %}" class="btn btn-secondary">رجوع</a>
+{% endblock %}
