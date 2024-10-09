@@ -9,6 +9,6 @@
 <p><strong>عدد الغرف:</strong> {{ property.rooms }}</p>
 <p><strong>النوع:</strong> {{ property.get_property_type_display }}</p>
 <p><strong>الحالة:</strong> {{ property.get_status_display }}</p>
-<a href="{% url 'property_update' property.pk %}" class="btn btn-warning">تعديل</a>
-<a href="{% url 'property_list' %}" class="btn btn-secondary">رجوع</a>
+<a href="{% url 'properties/property_update' property.pk %}" class="btn btn-warning">تعديل</a>
+<a href="{% url 'properties/property_list' %}" class="btn btn-secondary">رجوع</a>
 {% endblock %}
