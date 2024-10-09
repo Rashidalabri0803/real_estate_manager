@@ -1,35 +1,36 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}
+
 {% block content %}
-<h1>قائمة العقارات</h1>
+<h1 class="text-center">قائمة العقارات</h1>
 <a href="{% url 'property_create' %}" class="btn btn-primary mb-3">إضافة عقار جديد</a>
 <table class="table table-striped table-bordered">
-  <thead>
-    <tr>
-      <th>الاسم</th>
-      <th>الموقع</th>
-      <th>السعر</th>
-      <th>النوع</th>
-      <th>الحالة</th>
-      <th>الاجراءات</th>
-    </tr>
-  </thead>
-  <tbody>
-    {% for property in properties %}
-    <tr>
-      <td><a href="{% url 'property_detail' property.pk %}" >{{ property.name }}</a></td>
-      <td>{{ property.location }}</td>
-      <td>{{ property.price }}</td>
-      <td>{{ property.property_type }}</td>
-      <td>{{ property.status }}</td>
-      <td>
-        <a href="{% url 'property_update' property.id %}" class="btn btn-warning">تعديل</a>
-        <form action="{% url 'property_delete' property.id %}" method="post" style="display: inline;">
-          {% csrf_token %}
-          <button type="submit" class="btn btn-danger">حذف</button>
-        </form>
-      </td>
-    </tr>
-    {% endfor %}
-  </tbody>
+    <thead>
+        <tr>
+            <th>الاسم</th>
+            <th>الموقع</th>
+            <th>السعر</th>
+            <th>النوع</th>
+            <th>الحالة</th>
+            <th>الإجراءات</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for property in properties %}
+        <tr>
+            <td><a href="{% url 'property_detail' property.pk %}">{{ property.name }}</a></td>
+            <td>{{ property.location }}</td>
+            <td>{{ property.price }}</td>
+            <td>{{ property.get_property_type_display }}</td>
+            <td>{{ property.get_status_display }}</td>
+            <td class="text-nowrap">
+                <a href="{% url 'property_update' property.pk %}" class="btn btn-warning btn-sm">تعديل</a>
+                <form action="{% url 'property_delete' property.pk %}" method="POST" style="display:inline;">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-danger btn-sm">حذف</button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
 </table>
 {% endblock %}
