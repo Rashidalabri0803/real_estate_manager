@@ -32,11 +32,4 @@
     {% endfor %}
   </tbody>
 </table>
-<ul>
-  {% for property in properties %}
-  <li>
-    <a href="{% url 'property_detail' property.pk %}">{{ property.name }}</a>{{ property.location }} - {{ property.price }} ريال
-  </li>
-  {% endfor %}
-</ul>
 {% endblock %}
