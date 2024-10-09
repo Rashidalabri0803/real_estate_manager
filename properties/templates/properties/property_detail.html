@@ -1,13 +1,14 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}
+
 {% block content %}
-      <h1>تفاصيل العقار: {{ property.name }}</h1>
-      <p><strong>الموقع:</strong> {{ property.location }}</p>
-      <p><strong>السعر:</strong> {{ property.price }}</p>
-      <p><strong>الوصف:</strong> {{ property.description }}</p>
-      <p><strong>المساحة:</strong> {{ property.area }}</p>
-      <p><strong>عدد الغرف:</strong> {{ property.rooms }}</p>
-      <p><strong>نوع القار:</strong> {{ property.property_type }}</p>
-      <p><strong>الحالة:</strong> {{ property.status }}</p>
-      <a href="{% url 'property_update' property.pk %}" class="btn btn-warning">تعديل</a>
-      <a href="{% url 'property_list' %}" class="btn btn-secundary">الرجوع للقائمة</a>
+<h1 class="text-center">تفاصيل العقار: {{ property.name }}</h1>
+<p><strong>الموقع:</strong> {{ property.location }}</p>
+<p><strong>السعر:</strong> {{ property.price }}</p>
+<p><strong>الوصف:</strong> {{ property.description }}</p>
+<p><strong>المساحة:</strong> {{ property.area }} متر مربع</p>
+<p><strong>عدد الغرف:</strong> {{ property.rooms }}</p>
+<p><strong>النوع:</strong> {{ property.get_property_type_display }}</p>
+<p><strong>الحالة:</strong> {{ property.get_status_display }}</p>
+<a href="{% url 'property_update' property.pk %}" class="btn btn-warning">تعديل</a>
+<a href="{% url 'property_list' %}" class="btn btn-secondary">رجوع</a>
 {% endblock %}
