@@ -5,7 +5,7 @@ from .forms import PropertyForm
 
 def property_list(request):
     properties = Property.objects.all()
-    return render(request, 'property_list.html', {'properties': properties})
+    return render(request, 'properties/property_list.html', {'properties': properties})
 
 def property_detail(request, pk):
     property = get_object_or_404(Property, pk=pk)
