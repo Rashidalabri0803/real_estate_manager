@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>{% if rental %}تعديل الإيجار{% else %}إضافة إيجار جديد{% endif %}</h1>
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">حفظ</button>
+</form>
+<a href="{% url 'rental_list' %}" class="btn btn-secondary">رجوع</a>
+{% endblock %}
