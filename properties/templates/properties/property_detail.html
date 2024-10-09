@@ -1,17 +1,13 @@
 {% extends 'base.html' %}
 {% block content %}
-      <h2>{{ property.name }}</h2>
-      <img src="{{ property.image.url }}" alt="صورة العقار" class="img-fluid">
-      <p>الموقع: {{ property.location }}</p>
-      <p>السعر: {{ property.price }}</p>
-      <p>عدد الغرف: {{ property.rooms }}</p>
-      <p>نوع القار: {{ property.get_property_display }}</p>
-      <p>الوصف: {{ property.description }}</p>
-      <p>الحالة: {{ property.get_status_display }}</p>
+      <h1>تفاصيل العقار: {{ property.name }}</h1>
+      <p><strong>الموقع:</strong> {{ property.location }}</p>
+      <p><strong>السعر:</strong> {{ property.price }}</p>
+      <p><strong>الوصف:</strong> {{ property.description }}</p>
+      <p><strong>المساحة:</strong> {{ property.area }}</p>
+      <p><strong>عدد الغرف:</strong> {{ property.rooms }}</p>
+      <p><strong>نوع القار:</strong> {{ property.property_type }}</p>
+      <p><strong>الحالة:</strong> {{ property.status }}</p>
       <a href="{% url 'property_update' property.pk %}" class="btn btn-warning">تعديل</a>
-      <form action="{% url 'property_delete' property.pk %}" method="post" class="d-inline">
-        {% csrf_token %}
-        <button type="submit" class="btn btn-danger">حذف</button>
-      </form>
-        <a href="{% url 'property_list' %}" class="btn btn-secundary">الرجوع للقائمة</a>
+      <a href="{% url 'property_list' %}" class="btn btn-secundary">الرجوع للقائمة</a>
 {% endblock %}
