@@ -5,7 +5,7 @@ from .models import Property
 class PropertyForm(forms.ModelForm):
     class Meta:
         model = Property
-        fields = ['name', 'location', 'price', 'description', 'area', 'rooms', 'property_type', 'status', 'image']
+        fields = ['name', 'location', 'price', 'description', 'area', 'rooms', 'property_type', 'status']
         widgets = {
             'name': forms.TextInput(attrs={'class': 'form-control', 'placholder': 'أدخل اسم العقار'}),
             'location': forms.TextInput(attrs={'class': 'form-control', 'placholder': 'أدخل موقع العقار'}),
@@ -15,5 +15,4 @@ class PropertyForm(forms.ModelForm):
             'rooms': forms.NumberInput(attrs={'class': 'form-control', 'placholder': 'أدخل عدد الغرف'}),
             'property_type': forms.Select(attrs={'class': 'form-control'}),
             'status': forms.Select(attrs={'class': 'form-control'}),
-            'image': forms.FileInput(attrs={'class': 'form-control'}),
         }
