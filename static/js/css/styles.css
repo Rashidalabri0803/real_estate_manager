@@ -1,0 +1,15 @@
+body {
+    font-family: 'Tajawal', sans-serif;
+    direction: rtl;
+    text-align: right;
+}
+
+/* تخصيص الجداول */
+.table thead th {
+    text-align: right;
+}
+
+/* تخصيص الأزرار */
+.btn {
+    margin-left: 10px;
+}
