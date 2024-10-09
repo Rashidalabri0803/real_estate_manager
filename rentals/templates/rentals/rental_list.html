@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>قائمة الإيجارات</h1>
+<a href="{% url 'rental_create' %}" class="btn btn-primary">إضافة إيجار جديد</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th>العقار</th>
+            <th>المستأجر</th>
+            <th>تاريخ البدء</th>
+            <th>تاريخ الانتهاء</th>
+            <th>الإيجار الشهري</th>
+            <th>الحالة</th>
+            <th>الإجراءات</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for rental in rentals %}
+        <tr>
+            <td><a href="{% url 'rental_detail' rental.pk %}">{{ rental.property.name }}</a></td>
+            <td>{{ rental.tenant.name }}</td>
+            <td>{{ rental.start_date }}</td>
+            <td>{{ rental.end_date }}</td>
+            <td>{{ rental.monthly_rent }}</td>
+            <td>{{ rental.contract_status }}</td>
+            <td>
+                <a href="{% url 'rental_update' rental.pk %}" class="btn btn-warning">تعديل</a>
+                <form action="{% url 'rental_delete' rental.pk %}" method="POST" style="display:inline;">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-danger">حذف</button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
