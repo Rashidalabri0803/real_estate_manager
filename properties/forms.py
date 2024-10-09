@@ -10,7 +10,7 @@ class PropertyForm(forms.ModelForm):
             'name': forms.TextInput(attrs={'class': 'form-control', 'placholder': 'أدخل اسم العقار'}),
             'location': forms.TextInput(attrs={'class': 'form-control', 'placholder': 'أدخل موقع العقار'}),
             'price': forms.NumberInput(attrs={'class': 'form-control', 'placholder': 'أدخل سعر العقار'}),
-            'description': forms.Textarea(attrs={'class': 'form-control', 'placholder': 'أدخل وصف العقار'}),
+            'description': forms.Textarea(attrs={'rows': 3}),
             'area': forms.NumberInput(attrs={'class': 'form-control', 'placholder': 'أدخل مساحة العقار'}),
             'rooms': forms.NumberInput(attrs={'class': 'form-control', 'placholder': 'أدخل عدد الغرف'}),
             'property_type': forms.Select(attrs={'class': 'form-control'}),
