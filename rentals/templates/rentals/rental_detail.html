@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>تفاصيل الإيجار</h1>
+<p><strong>العقار:</strong> {{ rental.property.name }}</p>
+<p><strong>المستأجر:</strong> {{ rental.tenant.name }}</p>
+<p><strong>تاريخ البدء:</strong> {{ rental.start_date }}</p>
+<p><strong>تاريخ الانتهاء:</strong> {{ rental.end_date }}</p>
+<p><strong>الإيجار الشهري:</strong> {{ rental.monthly_rent }}</p>
+<p><strong>حالة العقد:</strong> {{ rental.contract_status }}</p>
+<a href="{% url 'rental_update' rental.pk %}" class="btn btn-warning">تعديل</a>
+<a href="{% url 'rental_list' %}" class="btn btn-secondary">رجوع</a>
+{% endblock %}
