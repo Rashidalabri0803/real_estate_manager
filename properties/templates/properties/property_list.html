@@ -7,9 +7,8 @@
     <thead>
         <tr>
             <th>الاسم</th>
-            <th>الموقع</th>
+            <th>العنوان</th>
             <th>السعر</th>
-            <th>النوع</th>
             <th>الحالة</th>
             <th>الإجراءات</th>
         </tr>
@@ -18,10 +17,10 @@
         {% for property in properties %}
         <tr>
             <td><a href="{% url 'property_detail' property.pk %}">{{ property.name }}</a></td>
-            <td>{{ property.location }}</td>
+            <td>{{ property.name }}</td>
+            <td>{{ property.address }}</td>
             <td>{{ property.price }}</td>
-            <td>{{ property.get_property_type_display }}</td>
-            <td>{{ property.get_status_display }}</td>
+            <td>{{ property.status }}</td>
             <td class="text-nowrap">
                 <a href="{% url 'property_update' property.pk %}" class="btn btn-warning btn-sm">تعديل</a>
                 <form action="{% url 'property_delete' property.pk %}" method="POST" style="display:inline;">
